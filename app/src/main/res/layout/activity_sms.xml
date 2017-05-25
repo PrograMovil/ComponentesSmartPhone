@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Número de Teléfono"
-        android:inputType="number"
+        android:inputType="phone"
         android:textAlignment="center" />
 
     <EditText

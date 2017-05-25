@@ -32,6 +32,9 @@ public class SMSActivity extends AppCompatActivity {
 
     public void enviarSMS(View view){
 
+        numTel = numeroTelefono.getText().toString();
+        msg = mensaje.getText().toString();
+
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.SEND_SMS)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -43,11 +46,6 @@ public class SMSActivity extends AppCompatActivity {
                         PERMISOS_ENVIAR_SMS);
             }
         }
-
-        numTel = numeroTelefono.getText().toString();
-        msg = mensaje.getText().toString();
-        SmsManager smsManager = SmsManager.getDefault();
-
     }
 
     public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults) {
@@ -66,6 +64,5 @@ public class SMSActivity extends AppCompatActivity {
                 }
             }
         }
-
     }
 }
