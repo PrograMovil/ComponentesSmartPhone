@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.lab.componentessmartphone.AudioActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/audioLbl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Audio"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/grabarBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="grabar"
+        android:text="Grabar Audio" />
+
+    <Button
+        android:id="@+id/stopGrabarBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="pararGrabacion"
+        android:text="Stop Grabación" />
+
+    <Button
+        android:id="@+id/playAudioBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="reproducirAudio"
+        android:text="Reproducir Audio" />
+
+    <Button
+        android:id="@+id/stopAudioBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="pararReproduccion"
+        android:text="Stop Audio" />
+</LinearLayout>

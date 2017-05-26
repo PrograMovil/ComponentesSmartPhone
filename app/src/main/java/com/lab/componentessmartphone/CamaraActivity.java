@@ -23,9 +23,6 @@ import java.io.File;
 
 public class CamaraActivity extends AppCompatActivity {
 
-//    private final String ruta_fotos = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/misfotos/";
-//    private File file = new File(ruta_fotos);
-
     private static final int PERMISOS_CAMARA_FOTO = 0;
     Button camaraBtn;
     ImageView fotoView;
@@ -75,21 +72,6 @@ public class CamaraActivity extends AppCompatActivity {
         return photoCode;
     }
 
-//    private static File getOutputMediaFile(){
-//        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
-//                Environment.DIRECTORY_PICTURES), "Mis_Fotos");
-//
-//        if (!mediaStorageDir.exists()){
-//            if (!mediaStorageDir.mkdirs()){
-//                return null;
-//            }
-//        }
-//
-//        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-//        return new File(mediaStorageDir.getPath() + File.separator +
-//                "IMG_"+ timeStamp + ".jpg");
-//    }
-
     public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults) {
         switch (requestCode) {
             case PERMISOS_CAMARA_FOTO: {
@@ -98,7 +80,7 @@ public class CamaraActivity extends AppCompatActivity {
                     startActivityForResult(cameraIntent, 100);
                 } else {
                     Toast.makeText(getApplicationContext(),
-                            "Camara error :(", Toast.LENGTH_LONG).show();
+                            "Camara foto error :(", Toast.LENGTH_LONG).show();
                     return;
                 }
             }
