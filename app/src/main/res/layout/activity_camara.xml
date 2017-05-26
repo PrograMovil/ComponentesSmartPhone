@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lab.componentessmartphone.CamaraActivity">
+    android:orientation="vertical"
+    tools:context="com.lab.componentessmartphone.CamaraActivity"
+    android:weightSum="1">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/camaraLbl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Camara"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:layout_weight="0.02" />
+
+    <ImageView
+        android:id="@+id/fotoView"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_above="@+id/activarCamaraBtn"/>
+
+    <Button
+        android:id="@+id/activarCamaraBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02"
+        android:layout_marginTop="10dp"
+        android:onClick="activarCamara"
+        android:text="Tomar Foto" />
+</LinearLayout>
