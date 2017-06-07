@@ -27,7 +27,7 @@ public class LlamadaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_llamada);
 
         numTelefono = (EditText) findViewById(R.id.numeroLlamada);
-        llamadaBtn = (Button) findViewById(R.id.llamadaBtn);
+        llamadaBtn = (Button) findViewById(R.id.llamarBtn);
     }
 
     public void realizarLlamada(View view) {

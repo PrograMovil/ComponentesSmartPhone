@@ -6,71 +6,101 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.lab.componentessmartphone.MainActivity">
+    
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Bienvenido por favor tome la foto de su perfil."
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"/>
+
+    <ImageView
+        android:id="@+id/fotoPerfil"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        android:src="@drawable/user"
+        android:layout_margin="20dp"/>
 
     <Button
-        android:text="Bluetooth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bluetoothBtn"
-        android:onClick="goToBluetooth"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_weight="0.18" />
+        android:id="@+id/tomarPerfil"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="Tomar Perfil"
+        android:layout_gravity="center"/>
 
     <Button
-        android:text="GPS"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/gpsBtn"
-        android:layout_weight="0.18"
-        android:onClick="goToGPS"/>
+        android:id="@+id/startGame"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="Iniciar Juego"
+        android:layout_gravity="center"/>
 
-    <Button
-        android:text="SMS"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/smsBtn"
-        android:layout_weight="0.18"
-        android:onClick="goToSMS"/>
+    <!--<Button-->
+        <!--android:text="Bluetooth"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/bluetoothBtn"-->
+        <!--android:onClick="goToBluetooth"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_weight="0.18" />-->
 
-    <Button
-        android:text="Camara"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/camaraBtn"
-        android:layout_weight="0.18"
-        android:onClick="goToCamara"/>
+    <!--<Button-->
+        <!--android:text="GPS"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/gpsBtn"-->
+        <!--android:layout_weight="0.18"-->
+        <!--android:onClick="goToGPS"/>-->
 
-    <Button
-        android:text="Audio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/audioBtn"
-        android:layout_weight="0.18"
-        android:onClick="goToAudio"/>
+    <!--<Button-->
+        <!--android:text="SMS"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/smsBtn"-->
+        <!--android:layout_weight="0.18"-->
+        <!--android:onClick="goToSMS"/>-->
 
-    <Button
-        android:text="Video"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/videoBtn"
-        android:layout_weight="0.18"
-        android:onClick="goToVideo"/>
+    <!--<Button-->
+        <!--android:text="Camara"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/camaraBtn"-->
+        <!--android:layout_weight="0.18"-->
+        <!--android:onClick="goToCamara"/>-->
 
-    <Button
-        android:text="Llamada telefónica"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/llamadaBtn"
-        android:layout_weight="0.18"
-        android:onClick="goToLlamada"/>
+    <!--<Button-->
+        <!--android:text="Audio"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/audioBtn"-->
+        <!--android:layout_weight="0.18"-->
+        <!--android:onClick="goToAudio"/>-->
 
-    <Button
-        android:text="Sensores"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/sensoresBtn"
-        android:layout_weight="0.18"
-        android:onClick="goToSensores"/>
+    <!--<Button-->
+        <!--android:text="Video"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/videoBtn"-->
+        <!--android:layout_weight="0.18"-->
+        <!--android:onClick="goToVideo"/>-->
+
+    <!--<Button-->
+        <!--android:text="Llamada telefónica"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/llamadaBtn"-->
+        <!--android:layout_weight="0.18"-->
+        <!--android:onClick="goToLlamada"/>-->
+
+    <!--<Button-->
+        <!--android:text="Sensores"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/sensoresBtn"-->
+        <!--android:layout_weight="0.18"-->
+        <!--android:onClick="goToSensores"/>-->
 
 </LinearLayout>
