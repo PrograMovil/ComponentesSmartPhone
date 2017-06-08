@@ -10,8 +10,10 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -27,19 +29,34 @@ public class MainActivity extends AppCompatActivity {
     ImageView fotoView;
     Intent cameraIntent;
     File file;
+    ViewGroup owner;
+    String pathFoto;
+    Button grabarMensaje;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         tomarPerfil = (Button) findViewById(R.id.tomarPerfil);
         fotoView = (ImageView) findViewById(R.id.fotoPerfil);
+        grabarMensaje = (Button) findViewById(R.id.audioRecord);
+        owner = (ViewGroup) tomarPerfil.getParent();
         tomarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tomarFotoPerfil(v);
-                ViewGroup owner = (ViewGroup) v.getParent();
-                owner.removeView(v);
+            }
+        });
+        grabarMensaje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,AudioActivity.class);
+                intent.putExtra("perfilPath",pathFoto);
+                MainActivity.this.startActivity(intent);
             }
         });
     }
@@ -57,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
                         new String[]{Manifest.permission.CAMERA , Manifest.permission.WRITE_EXTERNAL_STORAGE},
                         PERMISOS_CAMARA_FOTO);
             }
+        }else{
+            startActivityForResult(cameraIntent, 100);
         }
     }
 
@@ -94,11 +113,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        String path = file.getPath();
+        this.pathFoto = file.getPath();
         if (requestCode == 100) {
             if (resultCode == RESULT_OK) {
-                fotoView.setImageDrawable(Drawable.createFromPath(path));
+                fotoView.setImageDrawable(Drawable.createFromPath(pathFoto));
                 fotoView.setRotation(270);
+                owner.removeView(this.tomarPerfil);
             }
         }
     }

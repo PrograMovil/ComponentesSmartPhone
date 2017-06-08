@@ -7,39 +7,87 @@
     android:orientation="vertical"
     tools:context="com.lab.componentessmartphone.AudioActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/audioToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right"
+            android:paddingRight="15dp">
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Mensaje"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textColor="#000"/>
+            <ImageView
+                android:foregroundGravity="right"
+                android:id="@+id/perfilAudioAct"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                android:src="@drawable/home"/>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+
     <TextView
         android:id="@+id/audioLbl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Audio"
+        android:text="Por favor grabe su mensaje"
         android:textAlignment="center"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"/>
+
+
+    <ImageView
+        android:id="@+id/microImg"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:src="@drawable/microphone"
+        android:layout_margin="20dp"/>
 
     <Button
         android:id="@+id/grabarBtn"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:onClick="grabar"
+        android:layout_gravity="center"
         android:text="Grabar Audio" />
 
     <Button
         android:id="@+id/stopGrabarBtn"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:onClick="pararGrabacion"
+        android:layout_gravity="center"
         android:text="Stop Grabación" />
-
     <Button
-        android:id="@+id/playAudioBtn"
-        android:layout_width="match_parent"
+        android:id="@+id/startGame"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:onClick="reproducirAudio"
-        android:text="Reproducir Audio" />
+        android:layout_gravity="center"
+        android:text="Iniciar Juego"
+        android:enabled="false"/>
 
-    <Button
-        android:id="@+id/stopAudioBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="pararReproduccion"
-        android:text="Stop Audio" />
+    <!--<Button-->
+        <!--android:id="@+id/playAudioBtn"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:onClick="reproducirAudio"-->
+        <!--android:text="Reproducir Audio" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/stopAudioBtn"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:onClick="pararReproduccion"-->
+        <!--android:text="Stop Audio" />-->
 </LinearLayout>

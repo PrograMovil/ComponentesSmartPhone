@@ -6,15 +6,42 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.lab.componentessmartphone.MainActivity">
-    
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right"
+            android:paddingRight="15dp">
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:text="Foto de Perfil"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textColor="#000"/>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                android:src="@drawable/home"
+                />
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginTop="20dp"
         android:text="Bienvenido por favor tome la foto de su perfil."
         android:textAlignment="center"
-        android:textSize="24sp"
-        android:layout_marginTop="20dp"/>
+        android:textSize="24sp" />
 
     <ImageView
         android:id="@+id/fotoPerfil"
@@ -31,10 +58,10 @@
         android:layout_gravity="center"/>
 
     <Button
-        android:id="@+id/startGame"
+        android:id="@+id/audioRecord"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:text="Iniciar Juego"
+        android:text="Grabar mensaje"
         android:layout_gravity="center"/>
 
     <!--<Button-->
