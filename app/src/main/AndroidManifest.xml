@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.STORAGE" />
 
@@ -30,7 +30,9 @@
         <activity android:name=".AudioActivity" />
         <activity android:name=".VideoActivity" />
         <activity android:name=".LlamadaActivity" />
-        <activity android:name=".SensoresActivity"></activity>
+        <activity android:name=".SensoresActivity" />
+        <activity android:name=".PlayVideoActivity" />
+        <activity android:name=".PlayAudioActivity"></activity>
     </application>
 
 </manifest>

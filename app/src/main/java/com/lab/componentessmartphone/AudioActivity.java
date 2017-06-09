@@ -33,7 +33,7 @@ import java.util.Random;
 
 public class AudioActivity extends AppCompatActivity {
 
-    Button grabarBtn, stopGrabarBtn; //, reproducirBtn, stopReproducirBtn ;
+    Button grabarBtn, stopGrabarBtn;
     String AudioSavePathInDevice = null;
     MediaRecorder mediaRecorder ;
     Random random;
@@ -58,8 +58,7 @@ public class AudioActivity extends AppCompatActivity {
         startGame = (Button) findViewById(R.id.startGame);
         micro = (ImageView) findViewById(R.id.microImg);
         fotoPerfil = (ImageView) findViewById(R.id.perfilAudioAct);
-//        reproducirBtn = (Button) findViewById(R.id.playAudioBtn);
-//        stopReproducirBtn = (Button)findViewById(R.id.stopAudioBtn);
+
         stopGrabarBtn.setEnabled(false);
 //        reproducirBtn.setEnabled(false);
 //        stopReproducirBtn.setEnabled(false);
