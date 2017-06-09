@@ -22,18 +22,21 @@ import android.widget.Toast;
 
 import com.lab.componentessmartphone.R;
 
+import java.io.File;
+
 public class SensoresActivity extends AppCompatActivity implements SensorEventListener2 {
 
     private float xPos, xAccel, xVel = 0.0f;
     private float yPos, yAccel, yVel = 0.0f;
     private float xMax, yMax;
     private Bitmap ball;
-    private Bitmap mPhone;
-    private Bitmap mMessage;
+    private Bitmap mAudio;
+    private Bitmap mVideo;
     private Bitmap mBluetooth;
     private Bitmap mGPS;
     private SensorManager sensorManager;
     private boolean m1,m2,m3,m4;
+    private String rutaFoto, rutaAudio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +53,11 @@ public class SensoresActivity extends AppCompatActivity implements SensorEventLi
         BallView ballView = new BallView(this);
         setContentView(ballView);
 
-
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            this.rutaFoto = extras.getString("perfilPath");
+            this.rutaAudio = extras.getString("audioPath");
+        }
 
         xMax = (float) size.x - 100;
 
@@ -112,50 +119,54 @@ public class SensoresActivity extends AppCompatActivity implements SensorEventLi
 
 
 
-        if( (yPos <= 10) && (xPos <= 10) ){ //Esquina superior izquierda
+        if( (yPos <= 10) && (xPos <= 10) ){ //Esquina superior izquierda AUDIO
             if(m1!=true){
-                Toast.makeText(SensoresActivity.this, "Telefono", Toast.LENGTH_SHORT).show();
                 m1=true;
-                /*Intent intent = new Intent(SensoresActivity.this,MainActivity.class);
+                Toast.makeText(SensoresActivity.this, "Audio", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(SensoresActivity.this,AudioActivity.class);
                 sensorManager.unregisterListener(this);
                 super.onStop();
-                SensoresActivity.this.startActivity(intent);*/
+                SensoresActivity.this.startActivity(intent);
             }
 
 
-        } else if( (yPos <= 10) && (xPos >= (xMax-10)) ){ //Esquina superior derecha
+        } else if( (yPos <= 10) && (xPos >= (xMax-10)) ){ //Esquina superior derecha VIDEO
                     if(m2!=true){
-                        Toast.makeText(SensoresActivity.this, "Mensajes", Toast.LENGTH_SHORT).show();
                         m2=true;
-                        /*Intent intent = new Intent(SensoresActivity.this,MainActivity.class);
+                        Toast.makeText(SensoresActivity.this, "Video", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(SensoresActivity.this,VideoActivity.class);
+                        intent.putExtra("audioPath",rutaAudio);
                         sensorManager.unregisterListener(this);
                         super.onStop();
-                        SensoresActivity.this.startActivity(intent);*/
+                        SensoresActivity.this.startActivity(intent);
                     }
 
 
                 }
-                else if( ((yMax-10) <= yPos) && (xPos <=10) ){ //Esquina inferior izquierda
+                else if( ((yMax-10) <= yPos) && (xPos <=10) ){ //Esquina inferior izquierda GPS/SMS
                         if(m3!=true){
+                            m3=true;
                             Toast.makeText(SensoresActivity.this, "GPS", Toast.LENGTH_SHORT).show();
-                            /*Intent intent = new Intent(SensoresActivity.this,MainActivity.class);
+                            Intent intent = new Intent(SensoresActivity.this,SMSActivity.class);
                             sensorManager.unregisterListener(this);
                             super.onStop();
-                            SensoresActivity.this.startActivity(intent);*/
-                            m3=true;
+                            SensoresActivity.this.startActivity(intent);
+
                         }
 
 
 
                     }
-                    else if( (yPos >= (yMax-10)) && (xPos >= (xMax-10)) ){ //Esquina inferior derecha
+                    else if( (yPos >= (yMax-10)) && (xPos >= (xMax-10)) ){ //Esquina inferior derecha BLUETOOTH
                             if(m4!=true){
-                                Toast.makeText(SensoresActivity.this, "Bluetooth", Toast.LENGTH_SHORT).show();
-                                /*Intent intent = new Intent(SensoresActivity.this,MainActivity.class);
-                                        sensorManager.unregisterListener(this);
-                                        super.onStop();
-                                        SensoresActivity.this.startActivity(intent);*/
                                 m4=true;
+                                Toast.makeText(SensoresActivity.this, "Bluetooth", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(SensoresActivity.this,BluetoothActivity.class);
+                                intent.putExtra("perfilPath",rutaFoto);
+                                sensorManager.unregisterListener(this);
+                                super.onStop();
+                                SensoresActivity.this.startActivity(intent);
+
                             }
                         }
 
@@ -174,16 +185,16 @@ public class SensoresActivity extends AppCompatActivity implements SensorEventLi
             final int dstWidth = 100;
             final int dstHeight = 100;
             ball = Bitmap.createScaledBitmap(ballSrc, dstWidth, dstHeight, true);
-            mPhone = BitmapFactory.decodeResource(getResources(), R.drawable.phone);
-            mMessage = BitmapFactory.decodeResource(getResources(), R.drawable.whatsapp);
+            mAudio = BitmapFactory.decodeResource(getResources(), R.drawable.music);
+            mVideo = BitmapFactory.decodeResource(getResources(), R.drawable.youtube);
             mBluetooth = BitmapFactory.decodeResource(getResources(), R.drawable.bluetooth);
             mGPS = BitmapFactory.decodeResource(getResources(), R.drawable.gps);
         }
 
         @Override
         protected void onDraw(Canvas canvas) {
-            canvas.drawBitmap(mPhone, 0, 0, null); //arriba izq
-            canvas.drawBitmap(mMessage, xMax, 0, null); //arriba der
+            canvas.drawBitmap(mAudio, 0, 0, null); //arriba izq
+            canvas.drawBitmap(mVideo, xMax, 0, null); //arriba der
             canvas.drawBitmap(mBluetooth, xMax, yMax, null); //abajo der
             canvas.drawBitmap(mGPS, 0, yMax, null); //abajo izq
             canvas.drawBitmap(ball, xPos, yPos, null);
