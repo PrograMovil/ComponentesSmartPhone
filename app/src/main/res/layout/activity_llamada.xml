@@ -12,7 +12,15 @@
         android:id="@+id/lamadaLbl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Realizar llamada telefónica"
+        android:text="Felicidades, a ganado!"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:layout_weight="0.02" />
+    <TextView
+        android:id="@+id/lamadaLb2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comparta las buenas noticias con una llamada!"
         android:textAlignment="center"
         android:textSize="24sp"
         android:layout_weight="0.02" />
@@ -25,7 +33,9 @@
         android:ems="10"
         android:hint="Número de Teléfono"
         android:inputType="phone"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_marginTop="40dp"
+        />
 
     <Button
         android:id="@+id/llamarBtn"
@@ -34,4 +44,10 @@
         android:layout_weight="0.02"
         android:onClick="realizarLlamada"
         android:text="Llamar" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="338dp"
+        app:srcCompat="@drawable/win" />
 </LinearLayout>

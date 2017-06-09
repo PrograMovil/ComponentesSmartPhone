@@ -95,6 +95,13 @@ public class SensoresActivity extends AppCompatActivity implements SensorEventLi
     }
 
     private void updateBall() {
+        if(m1==true && m2==true && m3==true){
+            Intent intent = new Intent(SensoresActivity.this,LlamadaActivity.class);
+            sensorManager.unregisterListener(this);
+            super.onStop();
+            SensoresActivity.this.startActivity(intent);
+        }
+
         float frameTime = 0.666f;
         xVel += (xAccel * frameTime);
         yVel += (yAccel * frameTime);
@@ -161,14 +168,15 @@ public class SensoresActivity extends AppCompatActivity implements SensorEventLi
                             if(m4!=true){
                                 m4=true;
                                 Toast.makeText(SensoresActivity.this, "Bluetooth", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(SensoresActivity.this,BluetoothActivity.class);
+                                /*Intent intent = new Intent(SensoresActivity.this,BluetoothActivity.class);
                                 intent.putExtra("perfilPath",rutaFoto);
                                 sensorManager.unregisterListener(this);
                                 super.onStop();
-                                SensoresActivity.this.startActivity(intent);
+                                SensoresActivity.this.startActivity(intent);*/
 
                             }
                         }
+
 
     }
 
@@ -195,7 +203,7 @@ public class SensoresActivity extends AppCompatActivity implements SensorEventLi
         protected void onDraw(Canvas canvas) {
             canvas.drawBitmap(mAudio, 0, 0, null); //arriba izq
             canvas.drawBitmap(mVideo, xMax, 0, null); //arriba der
-            canvas.drawBitmap(mBluetooth, xMax, yMax, null); //abajo der
+            //canvas.drawBitmap(mBluetooth, xMax, yMax, null); //abajo der
             canvas.drawBitmap(mGPS, 0, yMax, null); //abajo izq
             canvas.drawBitmap(ball, xPos, yPos, null);
 
