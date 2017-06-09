@@ -123,7 +123,8 @@ public class SensoresActivity extends AppCompatActivity implements SensorEventLi
             if(m1!=true){
                 m1=true;
                 Toast.makeText(SensoresActivity.this, "Audio", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(SensoresActivity.this,AudioActivity.class);
+                Intent intent = new Intent(SensoresActivity.this,PlayAudioActivity.class);
+                intent.putExtra("audioPath",rutaAudio);
                 sensorManager.unregisterListener(this);
                 super.onStop();
                 SensoresActivity.this.startActivity(intent);
@@ -134,8 +135,7 @@ public class SensoresActivity extends AppCompatActivity implements SensorEventLi
                     if(m2!=true){
                         m2=true;
                         Toast.makeText(SensoresActivity.this, "Video", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(SensoresActivity.this,VideoActivity.class);
-                        intent.putExtra("audioPath",rutaAudio);
+                        Intent intent = new Intent(SensoresActivity.this,PlayVideoActivity.class);
                         sensorManager.unregisterListener(this);
                         super.onStop();
                         SensoresActivity.this.startActivity(intent);
