@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -63,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
     public void tomarFotoPerfil(View view){
         cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         file = this.getFile();
-        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+        Uri apkURI = FileProvider.getUriForFile(getApplicationContext(),getApplicationContext().getPackageName() + ".provider", file);
+        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, apkURI);
         if (ContextCompat.checkSelfPermission(MainActivity.this,
                 Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
@@ -122,44 +124,5 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    public void goToBluetooth(View view){
-//        Intent intent = new Intent(MainActivity.this,BluetoothActivity.class);
-//        MainActivity.this.startActivity(intent);
-//    }
-//
-//    public void goToGPS(View view){
-//        Intent intent = new Intent(MainActivity.this,GPSActivity.class);
-//        MainActivity.this.startActivity(intent);
-//    }
-//
-//    public void goToSMS(View view){
-//        Intent intent = new Intent(MainActivity.this,SMSActivity.class);
-//        MainActivity.this.startActivity(intent);
-//    }
-//
-//    public void goToCamara(View view){
-//        Intent intent = new Intent(MainActivity.this,CamaraActivity.class);
-//        MainActivity.this.startActivity(intent);
-//    }
-//
-//    public void goToAudio(View view){
-//        Intent intent = new Intent(MainActivity.this,AudioActivity.class);
-//        MainActivity.this.startActivity(intent);
-//    }
-//
-//    public void goToVideo(View view){
-//        Intent intent = new Intent(MainActivity.this,VideoActivity.class);
-//        MainActivity.this.startActivity(intent);
-//    }
-//
-//    public void goToLlamada(View view){
-//        Intent intent = new Intent(MainActivity.this,LlamadaActivity.class);
-//        MainActivity.this.startActivity(intent);
-//    }
-//
-//    public void goToSensores(View view){
-//        Intent intent = new Intent(MainActivity.this,SensoresActivity.class);
-//        MainActivity.this.startActivity(intent);
-//    }
 
 }

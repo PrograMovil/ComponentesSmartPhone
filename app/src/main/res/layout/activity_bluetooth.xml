@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.lab.componentessmartphone.BluetoothActivity">
 
     <android.support.v7.widget.Toolbar
@@ -32,8 +33,43 @@
                 android:layout_height="50dp"
                 android:layout_margin="3dp"
                 android:src="@drawable/home"/>
+
+
+
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
+    <TextView
+        android:id="@+id/textoInformacionBT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Como desea usar el Bluetooth?"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/enviarFoto"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="Enviar foto"/>
+
+
+    <Button
+        android:id="@+id/recibirFoto"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:text="Recibir foto"/>
+
+    <ImageView
+        android:id="@+id/imageViewFotoRecibida"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        />
 
 </LinearLayout>
