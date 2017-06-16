@@ -82,12 +82,12 @@ public class BluetoothActivity extends AppCompatActivity {
 
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter == null) {Toast.makeText(this,"El dispositivo no cuenta con bluetooth",Toast.LENGTH_LONG).show();
-            finish();
-            return;
+            botonEnviar.setEnabled(false);
+            botonRecibir.setEnabled(false);
         }
-        if (!mBluetoothAdapter.isEnabled()) {Toast.makeText(this,"Habilite el bluetooth",Toast.LENGTH_LONG).show();
-            finish();
-            return;
+        if (!mBluetoothAdapter.isEnabled()) {Toast.makeText(this,"Habilite el bluetooth y reinicie la aplicacion",Toast.LENGTH_LONG).show();
+            botonEnviar.setEnabled(false);
+            botonRecibir.setEnabled(false);
         }
     }
 
