@@ -45,6 +45,8 @@ public class LlamadaActivity extends AppCompatActivity {
                         new String[]{Manifest.permission.CALL_PHONE},
                         PERMISOS_LLAMADA);
             }
+        }else{
+            startActivity(callIntent);
         }
 
     }

@@ -56,7 +56,7 @@ public class SMSActivity extends AppCompatActivity implements GoogleApiClient.Co
         numTel = numeroTelefono.getText().toString();
         msg = mensaje.getText().toString();
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED ) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS)) {
             } else {
                 ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS},PERMISOS_ENVIAR_SMS);
@@ -97,6 +97,8 @@ public class SMSActivity extends AppCompatActivity implements GoogleApiClient.Co
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION},1);
+            Toast.makeText(this, "Error: NO HAY PERMISOS de ubicacion", Toast.LENGTH_SHORT).show();
             return;
         }
 
